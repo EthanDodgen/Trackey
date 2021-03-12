@@ -16,9 +16,9 @@ app.use(express.urlencoded({
 }))
 
 
-// db.all(`SELECT * FROM candidates`, (err, rows) => {
-//     console.log(rows);
-// })
+db.all(`SELECT * FROM staff`, (err, rows) => {
+    console.log(rows);
+})
 
 
 
