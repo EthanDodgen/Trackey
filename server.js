@@ -16,10 +16,11 @@ app.use(express.urlencoded({
 }))
 
 
-// Default response for any other request(Not Found) Catch all
-app.use((req, res) => {
-    res.status(404).end()
-})
+// db.all(`SELECT * FROM candidates`, (err, rows) => {
+//     console.log(rows);
+// })
+
+
 
 //connects to mysql
 connection.connect(function (err) {
@@ -29,6 +30,7 @@ connection.connect(function (err) {
 
     console.log('Connected to the MySQL server.')
 })
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
