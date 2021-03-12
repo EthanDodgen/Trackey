@@ -1,5 +1,5 @@
 const mysql = require('mysql2')
-const connection = mysql.createConnection({
+const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'Bangarang00!!',
@@ -15,21 +15,18 @@ app.use(express.urlencoded({
     extended: false
 }))
 
-
-db.all(`SELECT * FROM staff`, (err, rows) => {
-    console.log(rows);
-})
-
-
-
 //connects to mysql
-connection.connect(function (err) {
+db.connect(function (err) {
     if (err) {
         return console.error('error: ' + err.message)
     }
 
-    console.log('Connected to the MySQL server.')
+    console.log('Connected to the staff db.')
 })
+
+db.query(`SELECT * FROM employee`, (err, rows) => {
+    console.log(rows)
+  })
 
 
 app.listen(PORT, () => {
