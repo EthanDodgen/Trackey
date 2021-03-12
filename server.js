@@ -1,9 +1,9 @@
 const mysql = require('mysql2')
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Bangarang00!!',
-  database: 'staff'
+    host: 'localhost',
+    user: 'root',
+    password: 'Bangarang00!!',
+    database: 'staff'
 })
 const express = require("express")
 const PORT = process.env.PORT || 3001
@@ -15,19 +15,20 @@ app.use(express.urlencoded({
     extended: false
 }))
 
+
 // Default response for any other request(Not Found) Catch all
 app.use((req, res) => {
     res.status(404).end()
 })
 
-//connects to mysql/database
-connection.connect(function(err) {
+//connects to mysql
+connection.connect(function (err) {
     if (err) {
-      return console.error('error: ' + err.message)
+        return console.error('error: ' + err.message)
     }
-  
+
     console.log('Connected to the MySQL server.')
-  })
+})
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

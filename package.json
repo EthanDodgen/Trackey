@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "migrate": "mysql db/staff.db < db/schema.sql",
+    "seed": "mysql db/staff.db < db/seeds.sql",
+    "db": "mysql db/staff.db",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
