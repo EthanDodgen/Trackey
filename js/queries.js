@@ -1,3 +1,7 @@
+const db = require("../server.js")
+
+console.log(db)
+
 const queries = {
 
 department: () => {
