@@ -1,4 +1,4 @@
-const queries = [{
+const queries = {
 
 department: () => {
     db.query(`SELECT * FROM department`, (err, rows) => {
@@ -17,7 +17,7 @@ employee: () => {
         console.table(rows)
     })
 }
-}]
+}
 
 module.exports = queries 
 

@@ -29,12 +29,14 @@ db.connect(function (err) {
     console.log('Connected to the staff db.');   
 })
 
-const start = () => {
-    db.query(`SELECT * FROM department`, (err, rows) => {
-        console.table(rows)
-    })
-}
-start()
+// const start = () => {
+//     db.query(`SELECT * FROM department`, (err, rows) => {
+//         console.table(rows)
+//     })
+// }
+// start()
+
+queries.department()
 
 //console.log(queries[0].department)
 
