@@ -1,3 +1,5 @@
+const inquirer = require('inquirer')
+
 const promptMain = () => {
     return inquirer.prompt([{
         type: "list",
@@ -7,3 +9,5 @@ const promptMain = () => {
 
     }])
 }
+
+module.exports = promptMain

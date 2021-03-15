@@ -6,12 +6,14 @@ const db = mysql.createConnection({
     database: 'staff'
 })
 
-const inquirer = require('inquirer')
+
 const cTable = require('console.table')
 const express = require("express")
 const PORT = process.env.PORT || 3001
 const app = express()
 const queries = require("./js/queries.js")
+const prompts = require("./js/prompts.js")
+const promptMain = require('./js/prompts.js')
 
 app.use(express.json())
 // Express middleware
@@ -24,11 +26,18 @@ db.connect(function (err) {
     if (err) {
         return console.error('error: ' + err.message)
     }
-    console.log('Connected to the staff db.')
+    console.log('Connected to the staff db.');   
 })
 
+const start = () => {
+    db.query(`SELECT * FROM department`, (err, rows) => {
+        console.table(rows)
+    })
+}
+start()
 
-console.log(queries.department)
+//console.log(queries[0].department)
+
 
 
 app.listen(PORT, () => {
