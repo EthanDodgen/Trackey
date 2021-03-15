@@ -1,6 +1,10 @@
-const db = require("../server.js")
-
-console.log(db)
+const mysql = require('mysql2')
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Bangarang00!!',
+    database: 'staff'
+})
 
 const queries = {
 
@@ -22,6 +26,14 @@ employee: () => {
     })
 }
 }
+
+//connects to mysql
+db.connect(function (err) {
+    if (err) {
+        return console.error('error: ' + err.message)
+    }
+    //console.log('Connected to the staff db.');   
+})
 
 module.exports = queries 
 
