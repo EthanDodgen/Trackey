@@ -1,4 +1,6 @@
 const mysql = require('mysql2')
+
+//connects to database
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -6,6 +8,7 @@ const db = mysql.createConnection({
     database: 'staff'
 })
 
+//SQL Queries
 const queries = {
 
 department: () => {
@@ -24,8 +27,13 @@ employee: () => {
     db.query(`SELECT * FROM employee`, (err, rows) => {
         console.table(rows)
     })
+},
+
 }
-}
+
+
+
+
 
 //connects to mysql
 db.connect(function (err) {
@@ -36,6 +44,7 @@ db.connect(function (err) {
 })
 
 module.exports = queries 
+module.exports = db
 
 
 
