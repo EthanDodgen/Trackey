@@ -31,10 +31,6 @@ employee: () => {
 
 }
 
-
-
-
-
 //connects to mysql
 db.connect(function (err) {
     if (err) {
@@ -44,7 +40,7 @@ db.connect(function (err) {
 })
 
 module.exports = queries 
-module.exports = db
+
 
 
 

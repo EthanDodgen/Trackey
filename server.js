@@ -3,8 +3,6 @@ const queries = require("./js/queries.js")
 const prompts = require("./js/prompts.js")
 const promptMain = require('./js/prompts.js')
 
-const add = require("./js/update")
-
 prompts.promptMain()
     .then(answer => {
         if (answer.menu === "View All Departments") {
@@ -12,15 +10,15 @@ prompts.promptMain()
         }
         
         if (answer.menu === "View All Roles") {
-            prompts.promptRole()
+            queries.role()
         }
 
         if (answer.menu === "View All Employees") {
-            prompts.promptEmployee()
+            queries.employee()
         }
 
         if (answer.menu === "Add Department") {
-            add()
+            prompts.promptDepartment
         }
 
         if (answer.menu === "Add Role") {
@@ -32,7 +30,7 @@ prompts.promptMain()
         }
 
         if (answer.menu === "Update Employee Role") {
-            prompts.prompt()
+            prompts.promptUpdate()
         }
     })
 
