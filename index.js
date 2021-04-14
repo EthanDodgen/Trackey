@@ -1,14 +1,13 @@
-const cTable = require('console.table')
 const queries = require("./js/queries.js")
 const prompts = require("./js/prompts.js")
-const promptMain = require('./js/prompts.js')
+const db = require("../db/connection")
 
 prompts.promptMain()
     .then(answer => {
         if (answer.menu === "View All Departments") {
             queries.department()
         }
-        
+
         if (answer.menu === "View All Roles") {
             queries.role()
         }
@@ -24,7 +23,7 @@ prompts.promptMain()
         if (answer.menu === "Add Role") {
             prompts.promptRole()
         }
-        
+
         if (answer.menu === "Add Employee") {
             prompts.promptEmployee()
         }
@@ -33,8 +32,6 @@ prompts.promptMain()
             prompts.promptUpdate()
         }
     })
-
-  
 
 //promptMain()
 
