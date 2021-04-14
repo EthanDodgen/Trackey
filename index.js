@@ -1,6 +1,6 @@
 const queries = require("./js/queries.js")
 const prompts = require("./js/prompts.js")
-const db = require("../db/connection")
+const db = require("./db/connection.js")
 
 prompts.promptMain()
     .then(answer => {

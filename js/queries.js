@@ -1,5 +1,5 @@
 const mysql = require("mysql2")
-const db = require("../db/connection")
+const db = require("../db/connection.js")
 
 
 //SQL Queries
