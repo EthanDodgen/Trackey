@@ -4,6 +4,7 @@ const db = require("./db/connection.js")
 
 prompts.promptMain()
     .then(answer => {
+        console.log(answer)
         if (answer.menu === "View All Departments") {
             queries.department()
         }
@@ -31,10 +32,11 @@ prompts.promptMain()
         if (answer.menu === "Update Employee Role") {
             prompts.promptUpdate()
         }
+
     })
 
 
 
-// queries.employee()
+//queries.employee()
 
-// queries. role()
+//queries. role()
