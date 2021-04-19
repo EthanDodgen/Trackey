@@ -15,56 +15,42 @@ graphic()
 
 const init = () => {
     prompts.promptMain()
-        .then(async answer => {
+        .then(async (answer) => {
             if (answer.menu === "View All Departments") {
-                await queries.department()
-                await init()
-                }
-            })
-
-            if (answer.menu === "View All Roles") {
-                queries.role()
-                setTimeout(() => {
-                    init()
-                }, 50)
+                queries.department(init)
             }
 
+            if (answer.menu === "View All Roles") {
+                queries.role(init)
+            }
+
+
             if (answer.menu === "View All Employees") {
-                queries.employee()
-                setTimeout(() => {
-                    init()
-                }, 50)
+                queries.employee(init)
             }
 
             if (answer.menu === "Add Department") {
                 prompts.promptDepartment()
                     .then(answer => {
-                        console.log(answer)
+                        console.log(answer.department)
                     })
-                // setTimeout(() => {
-                //     init()
-                // }, 500)
             }
 
             if (answer.menu === "Add Role") {
                 prompts.promptRole()
-                // setTimeout(() => {
-                //     init()
-                // }, 50)
+                    .then(answer => {
+                        console.log(answer.role)
+                    })
+
             }
 
             if (answer.menu === "Add Employee") {
                 prompts.promptEmployee()
-                // setTimeout(() => {
-                //     init()
-                // }, 50)
+                    .then(answer => {
+                        console.log(answer.employee)
+                    })
             }
+        })
+}
 
-            if (answer.menu === "Update Employee Role") {
-                prompts.promptUpdate()
-                // setTimeout(() => {
-                //     init()
-                // }, 50)
-            }
-        }
 init()
