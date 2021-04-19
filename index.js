@@ -15,13 +15,12 @@ graphic()
 
 const init = () => {
     prompts.promptMain()
-        .then(answer => {
+        .then(async answer => {
             if (answer.menu === "View All Departments") {
-                queries.department()
-                setTimeout(() => {
-                    init()
-                }, 50)
-            }
+                await queries.department()
+                await init()
+                }
+            })
 
             if (answer.menu === "View All Roles") {
                 queries.role()
@@ -67,6 +66,5 @@ const init = () => {
                 //     init()
                 // }, 50)
             }
-        })
-}
+        }
 init()
