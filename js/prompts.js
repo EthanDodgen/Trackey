@@ -2,7 +2,7 @@ const inquirer = require('inquirer')
 
 const prompts = {
 
-    promptMain: () => {
+    promptMain: async () => {
         return inquirer.prompt([{
             type: "list",
             name: "menu",

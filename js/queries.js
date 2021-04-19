@@ -1,16 +1,18 @@
 const mysql = require("mysql2")
 const db = require("../db/connection.js")
+const { promptMain } = require("../js/prompts.js")
+const prompts = require("../js/prompts.js")
 
-
+// console.log("im here", db)
 //SQL Queries
 const queries = {
 
-    department: () => {
+    department: async () => {
         db.query(`SELECT * FROM department`, (err, rows) => {
             console.table(rows)
         })
     },
-
+    
     role: () => {
         db.query(`SELECT * FROM role`, (err, rows) => {
             console.table(rows)

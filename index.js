@@ -1,12 +1,22 @@
 const queries = require("./js/queries.js")
 const prompts = require("./js/prompts.js")
 const db = require("./db/connection.js")
+const logo = require("asciiart-logo")
+
+// Display logo text
+const graphic = () => {
+    const logoText = logo({ name: "TRACKEY" }).render()
+  
+    console.log(logoText)
+}
+graphic()
+  
 
 prompts.promptMain()
     .then(answer => {
-        console.log(answer)
         if (answer.menu === "View All Departments") {
             queries.department()
+            prompts.promptMain()
         }
 
         if (answer.menu === "View All Roles") {
@@ -18,8 +28,9 @@ prompts.promptMain()
         }
 
         if (answer.menu === "Add Department") {
-            prompts.promptDepartment
+            prompts.promptDepartment()
         }
+
 
         if (answer.menu === "Add Role") {
             prompts.promptRole()
@@ -32,11 +43,5 @@ prompts.promptMain()
         if (answer.menu === "Update Employee Role") {
             prompts.promptUpdate()
         }
-
     })
 
-
-
-//queries.employee()
-
-//queries. role()
