@@ -1,17 +1,19 @@
 const mysql = require("mysql2")
 const db = require("../db/connection.js")
-const { promptMain } = require("../js/prompts.js")
+const {
+    promptMain
+} = require("../js/prompts.js")
 
 //SQL Queries
 const queries = {
 
-    department: (callback) => {
+    department: (callbacks) => {
         db.query(`SELECT * FROM department`, (err, rows) => {
             console.table(rows)
-            callback()
+            callbacks()
         })
     },
-    
+
     role: (callback) => {
         db.query(`SELECT * FROM role`, (err, rows) => {
             console.table(rows)
@@ -25,9 +27,13 @@ const queries = {
             callback()
         })
     },
-    
-    
 
+    //MOVE TO SEPARATE FILE
+    addDepartment: () => {
+        db.query(`INSERT INTO department(name) VALUES("?")`, (err, rows) => {
+            console.table(rows)
+        })
+    }
 }
 
 module.exports = queries

@@ -24,7 +24,6 @@ const init = () => {
                 queries.role(init)
             }
 
-
             if (answer.menu === "View All Employees") {
                 queries.employee(init)
             }
@@ -33,6 +32,18 @@ const init = () => {
                 prompts.promptDepartment()
                     .then(answer => {
                         console.log(answer.department)
+                        const department = answer
+                        const sql = `INSERT INTO department(name) 
+                                    VALUES("?")`
+                        const params = department
+
+                        db.query(sql, params, function(err, result) {
+                            if (err) {
+                                console.log(err)
+                            }
+                            console.log(result)
+                            console.log(this.lastID)
+                        })
                     })
             }
 
@@ -41,7 +52,6 @@ const init = () => {
                     .then(answer => {
                         console.log(answer.role)
                     })
-
             }
 
             if (answer.menu === "Add Employee") {
