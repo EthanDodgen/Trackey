@@ -2,8 +2,7 @@
 
 ## Description
 
-Back end development for a voting app.
-
+Command line application for an employee content management system.  
 
 ## Table of Contents
 
@@ -18,12 +17,12 @@ Language(s) used in this project:
 * Javascript
 * SQL
 * Node.js
+
 ## Questions
 
 You can find my repository URL [Here](https://github.com/EthanDodgen/Trackey)
 
 If you have additional questions, you may reach me at my E-mail Address: thefivalco@gmail.com
-
 
 ## Comments
 
