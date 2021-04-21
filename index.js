@@ -38,6 +38,7 @@ const init = () => {
                             if (err) {
                                 console.log(err)
                             }
+                            init()
                         })
                     })
             }
@@ -45,22 +46,33 @@ const init = () => {
             if (answer.menu === "Add Role") {
                 prompts.promptRole()
                     .then(answer => {
-                        const sql = (`INSERT INTO role(name) VALUES(?)`)
-                        const params = answer.role
+                        console.log(answer)
+                        const sql = (`INSERT INTO role(title, salary, department_id) VALUES(?, ?, ?)`)
+                        const params = [answer.title, answer.salary, answer.department_id]
 
                         db.query(sql, params, function (err, result) {
                             if (err) {
                                 console.log(err)
                             }
+                            init()
                         })
                     })
             }
 
             if (answer.menu === "Add Employee") {
                 prompts.promptEmployee()
-                    .then(answer => {
-                        console.log(answer.employee)
+                .then(answer => {
+                    console.log(answer)
+                    const sql = (`INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES(?, ?, ?, ?)`)
+                    const params = [answer.first_name, answer.last_name, answer.role_id, answer.manager_id]
+
+                    db.query(sql, params, function (err, result) {
+                        if (err) {
+                            console.log(err)
+                        }
+                        init()
                     })
+                })
             }
         })
 }
