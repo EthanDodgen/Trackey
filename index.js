@@ -31,18 +31,13 @@ const init = () => {
             if (answer.menu === "Add Department") {
                 prompts.promptDepartment()
                     .then(answer => {
-                        console.log(answer.department)
-                        const department = answer
-                        const sql = `INSERT INTO department(name) 
-                                    VALUES("?")`
-                        const params = department
+                        const sql = (`INSERT INTO department(name) VALUES(?)`)
+                        const params = answer.department
 
-                        db.query(sql, params, function(err, result) {
+                        db.query(sql, params, function (err, result) {
                             if (err) {
                                 console.log(err)
                             }
-                            console.log(result)
-                            console.log(this.lastID)
                         })
                     })
             }
@@ -50,7 +45,14 @@ const init = () => {
             if (answer.menu === "Add Role") {
                 prompts.promptRole()
                     .then(answer => {
-                        console.log(answer.role)
+                        const sql = (`INSERT INTO role(name) VALUES(?)`)
+                        const params = answer.role
+
+                        db.query(sql, params, function (err, result) {
+                            if (err) {
+                                console.log(err)
+                            }
+                        })
                     })
             }
 

@@ -20,7 +20,7 @@ const prompts = {
         return inquirer.prompt([{
             type: "input",
             name: "department",
-            message: "Enter Name of Department"
+            message: "Enter Name of Department",
         }])
     },
 

@@ -29,11 +29,11 @@ const queries = {
     },
 
     //MOVE TO SEPARATE FILE
-    addDepartment: () => {
-        db.query(`INSERT INTO department(name) VALUES("?")`, (err, rows) => {
-            console.table(rows)
-        })
-    }
+    // addDepartment: () => {
+    //     db.query(`INSERT INTO department(name) VALUES("")`, (err, rows) => {
+    //         console.table(rows)
+    //     })
+    // }
 }
 
 module.exports = queries
