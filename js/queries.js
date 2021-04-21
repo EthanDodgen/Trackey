@@ -1,8 +1,5 @@
 const mysql = require("mysql2")
 const db = require("../db/connection.js")
-const {
-    promptMain
-} = require("../js/prompts.js")
 
 //SQL Queries
 const queries = {
@@ -28,12 +25,13 @@ const queries = {
         })
     },
 
-    //MOVE TO SEPARATE FILE
-    // addDepartment: () => {
-    //     db.query(`INSERT INTO department(name) VALUES("")`, (err, rows) => {
-    //         console.table(rows)
-    //     })
-    // }
+    //finds all employees, joins with roles and departments to display their roles, salaries, departments, and managers
+    allEmployee: () => {
+        db.query(`SELECT first_name, last_name FROM employee`, (err, rows) => {
+            console.table(rows)
+        })
+
+    }
 }
 
 module.exports = queries

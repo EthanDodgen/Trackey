@@ -43,29 +43,42 @@ const prompts = {
     promptEmployee: () => {
         return inquirer.prompt([{
                 name: "first_name",
-                message: "Enter employees first name."
+                message: "Enter employee's first name."
             },
             {
                 name: "last_name",
-                message: "Enter employees last name."
+                message: "Enter employee's last name."
             },
             {
                 name: "role_id",
-                message: "What is the employees role id?"
+                message: "What is the employee's role id?"
             },
             {
                 name: "manager_id",
-                message: "What is the employees manager id?"
+                message: "What is the employee's manager id?"
             }
         ])
     },
 
     promptUpdate: () => {
         return inquirer.prompt([{
-            type: "input",
-            name: "update",
-            message: "Update Info"
-        }])
+            name: "employee_name",
+            message: "Which employee's role do you want to update?",
+            choices: ""
+        },
+        {
+            name: "title",
+            message: "What is the employee's title"
+        },
+        {
+            name: "salary",
+            message: "What is the employee's salary?"
+        },
+        {
+            name: "department_id",
+            message: "What is the employee's department Id."
+        }
+    ])
     }
 }
 
