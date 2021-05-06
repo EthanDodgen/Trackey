@@ -79,6 +79,16 @@ const prompts = {
             message: "What is the employee's department Id."
         }
     ])
+    },
+
+    promptEmployees: (rows) => {
+        return inquirer.prompt([{
+            type: "list",
+            name: "employees",
+            message: "What would you like to do?",
+            choices: rows
+
+        }])
     }
 }
 

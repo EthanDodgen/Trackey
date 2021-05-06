@@ -62,7 +62,6 @@ const init = () => {
             if (answer.menu === "Add Employee") {
                 prompts.promptEmployee()
                     .then(answer => {
-                        console.log(answer)
                         const sql = (`INSERT INTO employee(first_name, last_name, role_id, manager_id) 
                                     VALUES(?, ?, ?, ?)`)
                         const params = [answer.first_name, answer.last_name, answer.role_id, answer.manager_id]
@@ -78,7 +77,8 @@ const init = () => {
 
             if (answer.menu === "Update Employee Role") {
 
-                queries.allEmployee()
+              queries.allEmployee(prompts.promptEmployees)
+               
                 
                   
                 

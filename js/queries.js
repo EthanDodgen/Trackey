@@ -4,10 +4,10 @@ const db = require("../db/connection.js")
 //SQL Queries
 const queries = {
 
-    department: (callbacks) => {
+    department: (callback) => {
         db.query(`SELECT * FROM department`, (err, rows) => {
             console.table(rows)
-            callbacks()
+            callback()
         })
     },
 
@@ -25,10 +25,12 @@ const queries = {
         })
     },
 
-    //finds all employees, joins with roles and departments to display their roles, salaries, departments, and managers
-    allEmployee: () => {
+    allEmployee: (callback) => {
         db.query(`SELECT first_name, last_name FROM employee`, (err, rows) => {
-            console.table(rows)
+            const employees = rows.map((employee) => {
+                return `${employee.first_name} ${employee.last_name}`
+            })
+            callback(employees)
         })
 
     }
