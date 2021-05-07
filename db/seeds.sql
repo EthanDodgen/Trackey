@@ -7,14 +7,14 @@ VALUES
 
 INSERT INTO role (title, salary, department_id )
 VALUES
- ("Senior", "90", "364"),
- ("Junior", "5", "384"),
- ("Trash Guy", "30", "3"),
- ("Manager", "900", "4");
+ ("Engineer", "90", "1"),
+ ("HR", "5", "20"),
+ ("Maintenance", "30", "3"),
+ ("Manager", "80", "4");
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
- ("billy", "bob", "45", "89"),
- ("gary", "guy", "78", "84"),
- ("kyle", "kirby", "4", "8"),
- ("sally", "bill", "12", "6");
+ ("billy", "bob", "1", "1"),
+ ("gary", "guy", "2", "2"),
+ ("kyle", "kirby", "3", "3"),
+ ("sally", "bill", "4", "4");

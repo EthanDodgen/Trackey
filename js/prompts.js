@@ -62,23 +62,23 @@ const prompts = {
 
     promptUpdate: () => {
         return inquirer.prompt([{
-            name: "employee_name",
-            message: "Which employee's role do you want to update?",
-            choices: ""
-        },
-        {
-            name: "title",
-            message: "What is the employee's title"
-        },
-        {
-            name: "salary",
-            message: "What is the employee's salary?"
-        },
-        {
-            name: "department_id",
-            message: "What is the employee's department Id."
-        }
-    ])
+                name: "employee_name",
+                message: "Which employee's role do you want to update?",
+                choices: ""
+            },
+            {
+                name: "title",
+                message: "What is the employee's title"
+            },
+            {
+                name: "salary",
+                message: "What is the employee's salary?"
+            },
+            {
+                name: "department_id",
+                message: "What is the employee's department Id."
+            }
+        ])
     },
 
     promptEmployees: (rows) => {
@@ -87,7 +87,6 @@ const prompts = {
             name: "employees",
             message: "What would you like to do?",
             choices: rows
-
         }])
     }
 }
